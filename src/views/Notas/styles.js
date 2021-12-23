@@ -14,6 +14,16 @@ export const Container = styled.div`
  
 `;
 
+export const AlertArea = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
+export const LoadArea = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
 export const Botoes = styled.div`
     margin-top: 20px; 
     display: flex;

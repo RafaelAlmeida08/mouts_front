@@ -55,6 +55,12 @@ export const CadastroLocalidade = () => {
 
     },[]);
 
+    useEffect(() => {
+        registered && setTimeout( () => { 
+            setRegistered(false)
+        }, 3000)
+    }, [registered])
+
     const registrar = async () => {
         if(nome === '' || endereco === '') {
             alert('Favor preencher todos os campos');

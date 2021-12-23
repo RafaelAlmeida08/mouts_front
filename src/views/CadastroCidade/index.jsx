@@ -1,7 +1,7 @@
 import { AlertArea, Container, Content, FormArea, InputGroup, Title } from "./styles";
 import { NavBar } from '../../components/NavBar';
 import { Input } from "../../components/Input";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Select } from "../../components/Select";
 import { estados } from "../../utils/estados";
 import { Botao } from "../../components/Botao";
@@ -42,6 +42,12 @@ export const CadastroCidade = () => {
             })
         }               
     };
+
+    useEffect(() => {
+        registered && setTimeout( () => { 
+            setRegistered(false)
+        }, 3000)
+    }, [registered])
 
     return(
         <Container>
