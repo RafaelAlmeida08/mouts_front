@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Card } from "../../components/Card";
 import { NavBar } from "../../components/NavBar";
-import { CardArea, Container, Content, Reviews } from "./styles";
+import { AreaBotao, Botoes, CardArea, Container, Content, Reviews } from "./styles";
 import { Review } from '../../components/Review';
 import { useNavigate } from 'react-router-dom';
 import localidade from '../../assets/images/house.jpg';
@@ -36,9 +36,15 @@ export const Notas = () => {
             <Content>
                 <CardArea>
                     <Card img={localidade}/>
-                    <div onClick={() => apagarLocalidade()}>
-                        <Botao text="Apagar Localidade"/>
-                    </div>                    
+                    <Botoes>
+                        <AreaBotao onClick={() => apagarLocalidade()}>
+                            <Botao text="Apagar Localidade"/>
+                        </AreaBotao> 
+                        <AreaBotao onClick={() => {}}>
+                            <Botao text="Avaliar"/>
+                        </AreaBotao> 
+                    </Botoes>
+                                       
                     <h1>Avaliações</h1>
                 </CardArea>                
                 <Reviews>

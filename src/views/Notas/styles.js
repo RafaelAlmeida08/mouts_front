@@ -4,11 +4,28 @@ import banner from '../../assets/images/banner.png';
 const breakPoints = {    
     md: {
         value: 860
+    },
+    sm:{
+        value: 465
     }
 }
 
 export const Container = styled.div`
  
+`;
+
+export const Botoes = styled.div`
+    margin-top: 20px; 
+    display: flex;
+    @media(max-width: ${breakPoints.sm.value}px) {
+        flex-direction: column;
+    }  
+`;
+
+export const AreaBotao = styled.div`
+    margin-top: 20px; 
+    margin: 15px;
+    
 `;
 export const Content = styled.div`
     display: flex;
