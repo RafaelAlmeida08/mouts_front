@@ -1,5 +1,5 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { Cidades } from '../views/Cidades/styles';
+import { Cidades } from '../views/Cidades';
 import { Home } from '../views/Home';
 
 export const Router = () => {
