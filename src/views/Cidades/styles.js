@@ -2,10 +2,7 @@ import styled from 'styled-components';
 
 const breakPoints = {
     md: {
-        value: 765
-    },
-    lg: {
-        value: ''
+        value: 780
     }
 }
 
