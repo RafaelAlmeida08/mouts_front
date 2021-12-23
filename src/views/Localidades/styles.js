@@ -14,12 +14,6 @@ export const FilterArea = styled.div`
     }    
 `;
 
-export const LeftContent = styled.div``;
-
-export const RightContent = styled.div``;
-
-export const CategoriesList = styled.div``;
-
 export const List = styled.ul`
     display:flex;   
     flex-wrap: wrap; 
@@ -46,24 +40,18 @@ export const LocalArea = styled.div`
     justify-content: center;    
     margin-top: 50px;
     a{
-        text-decoration: none;
-        /* padding-right: 40px; */
+        text-decoration: none;       
     }
 `;
 
-export const Container = styled.div`
-    /* margin-left: 20px;   */
-`;
+export const Container = styled.div``;
 
 export const CardArea = styled.div`
-    /* padding-right: 40px;
-    padding-left: 40px; */
     display: flex;  
     flex-wrap: wrap;
+    justify-content: center;
     @media(max-width: ${breakPoints.md.value}px) {
         justify-content: center;
         flex-direction: column;
-
-    }    
-    
+    } 
 `;

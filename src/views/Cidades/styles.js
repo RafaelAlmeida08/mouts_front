@@ -1,17 +1,14 @@
 import styled from 'styled-components';
 
-const breakPoints = {
-    md: {
-        value: 780
-    }
-}
-
 export const Container = styled.div``;
 
 export const Content = styled.ul`
-    display: flex;
-    justify-content: center;
-
+     display: flex;   
+    justify-content: center;    
+    margin-top: 50px;
+    a{
+        text-decoration: none;       
+    }
 `;
 
 export const CidadeDados = styled.div`

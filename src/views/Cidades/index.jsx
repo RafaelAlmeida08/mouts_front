@@ -1,5 +1,5 @@
 import { NavBar } from "../../components/NavBar";
-import { Cidade, CidadeDados, CidadeDescricao, CidadeNome, CidadesArea, Container, Content, Filtro, FiltroArea, ItemFiltro } from "./styles";
+import { Cidade, CidadeDados, CidadeDescricao, CidadeNome, CidadesArea, Container, Content } from "./styles";
 import { Card } from "../../components/Card";
 import axios from "axios";
 import { baseURL } from "../../utils/api";
