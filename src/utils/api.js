@@ -19,3 +19,12 @@ export async function postLocalidades(data) {
     })    
     .then(response => response.data);     
 }
+
+export async function postCidades(data) {
+    return await axios({
+        method: 'POST',
+        url: `${baseURL}/cidades`,
+        data: data
+    })
+    .then(response => response.data);     
+}

@@ -6,14 +6,14 @@ import { Select } from "../../components/Select";
 import { estados } from "../../utils/estados";
 import { Botao } from "../../components/Botao";
 import axios from "axios";
-import { baseURL } from "../../utils/api";
+import { baseURL, postCidades } from "../../utils/api";
 import Loader from "react-loader-spinner";
 import { ThemeContext } from "styled-components";
 import Alert from '@mui/material/Alert';
 
 export const CadastroCidade = () => {
        
-    const [ cidade, setCidade ] = useState('');
+    const [ nome, Setnome ] = useState('');
     const [ pais, setPais ] = useState('');
     const [ estado, setEstado ] = useState(estados[0]);
     const [ loading, setLoading ] = useState(false);
@@ -21,20 +21,12 @@ export const CadastroCidade = () => {
     const { colors } = useContext(ThemeContext)   
 
     const registrar = async () => {
-        if(cidade === '' || pais === '') {
+        if(nome === '' || pais === '') {
             alert('Favor preencher todos os campos');
             return false;
         }else {
             setLoading(true)
-            await axios({
-                method: 'POST',
-                url: `${baseURL}/cidades`,
-                data: {
-                    nome: cidade,
-                    estado: estado,
-                    pais: pais
-                }
-            })
+            postCidades({nome, estado, pais})
             .then( response => setRegistered(true) )
             .catch(error => console.log(error))
             .finally(() => {
@@ -68,8 +60,8 @@ export const CadastroCidade = () => {
                         </Title>
                         <InputGroup>
                             <Input
-                                value={cidade}
-                                setValue={setCidade}
+                                value={nome}
+                                setValue={Setnome}
                                 placeholder="Nome da Cidade"
                             />
                             <Select

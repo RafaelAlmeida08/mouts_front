@@ -25,7 +25,7 @@ export const Cidades = () => {
         setLoading(true)
         getCidades()
         .then( response => {
-            setCidades(response.data)
+            setCidades(response)
         })
         .catch( error => console.log(error)) 
         .finally(() => setLoading(false))     
