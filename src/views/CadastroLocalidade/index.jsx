@@ -13,7 +13,7 @@ import Alert from '@mui/material/Alert';
 export const CadastroLocalidade = () => {
     const [ loading, setLoading ] = useState(false);
     const { colors } = useContext(ThemeContext);
-    const [ registered, setRegistered ] = useState(false);
+    const [ registered, setRegistered ] = useState(false); 
 
     const [ cidades, setCidades ] = useState([]);
     const [ tipos, setTipos ] = useState([]);

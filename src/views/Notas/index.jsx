@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Card } from "../../components/Card";
 import { NavBar } from "../../components/NavBar";
 import { AlertArea, AreaBotao, Botoes, CardArea, Container, Content, LoadArea, Reviews } from "./styles";
@@ -106,6 +106,11 @@ export const Notas = () => {
                                     </AreaBotao> 
                                     <AreaBotao onClick={() => setModalOpen(true)}>
                                         <Botao text="Avaliar"/>
+                                    </AreaBotao> 
+                                    <AreaBotao onClick={() => setModalOpen(true)}>
+                                        <Link key={localidade.id} to={{ pathname: `/localidade/editar/${id}`}}> 
+                                            <Botao text="Editar"/>
+                                        </Link> 
                                     </AreaBotao> 
                                 </Botoes>                                       
                                 <h1>Avaliações</h1>

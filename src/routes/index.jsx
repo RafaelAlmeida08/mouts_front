@@ -15,9 +15,10 @@ export const Router = () => {
                 <Route exact path="cidades" element={<Cidades />} />     
                 <Route exact path="localidades" element={<Localidades />} />          
                 <Route exact path="localidade/:id" element={<Notas />} />   
+                <Route exact path="/localidade/editar/:id" element={<EditarLocalidades />} />  
                 <Route exact path="/cadastro/cidades" element={<CadastroCidade />} />  
                 <Route exact path="/cadastro/localidades" element={<CadastroLocalidade />} />  
-                <Route exact path="/editar/localidades" element={<EditarLocalidades />} />  
+                
             </Routes>
         </BrowserRouter>
     );

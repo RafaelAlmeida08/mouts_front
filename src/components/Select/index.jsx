@@ -1,6 +1,6 @@
 import { Container } from "./styles"
 
-export const Select = ({opt, setValue, label, value, fixo}) => {    
+export const Select = ({opt, setValue, label, value, fixo}) => {   
     return(
         <Container>
              <label>{label} : </label>
@@ -12,8 +12,8 @@ export const Select = ({opt, setValue, label, value, fixo}) => {
                             <option  key={op.id} value={op.id}>{op.nome}</option>
                         ))                    
                     :
-                        opt.map( (op) => (
-                            <option value={op} key={op} >{op}</option>
+                        opt.map( (op, index) => (
+                            <option  value={op} key={op} >{op}</option>
                         ))
                 }                       
                 </select>            

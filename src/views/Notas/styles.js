@@ -3,7 +3,7 @@ import banner from '../../assets/images/banner.png';
 
 const breakPoints = {    
     md: {
-        value: 860
+        value: 720
     },
     sm:{
         value: 465
@@ -27,7 +27,7 @@ export const LoadArea = styled.div`
 export const Botoes = styled.div`
     margin-top: 20px; 
     display: flex;
-    @media(max-width: ${breakPoints.sm.value}px) {
+    @media(max-width: ${breakPoints.md.value}px) {
         flex-direction: column;
     }  
 `;
@@ -35,6 +35,10 @@ export const Botoes = styled.div`
 export const AreaBotao = styled.div`
     margin-top: 20px; 
     margin: 15px;
+
+    a{
+        text-decoration: none;
+    }
     
 `;
 export const Content = styled.div`
