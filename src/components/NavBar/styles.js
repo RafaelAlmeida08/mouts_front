@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const breakPoints = {
     md: {
-        value: 660
+        value: 720
     }
 }; 
 

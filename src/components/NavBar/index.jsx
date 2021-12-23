@@ -1,12 +1,8 @@
 import React, { useState } from "react";
-import { 
-    Container, 
-    Hamburguer, 
-    LogoArea, 
-    Menu
-} from "./styles";
+import { Container, Hamburguer, LogoArea, Menu} from "./styles";
 import { Link } from "react-router-dom";
 import { MenuItem } from "../MenuItem";
+import { ThemeToggle } from "../ThemeToggle";
 
 export const NavBar = () => {
     const navigation = [
@@ -18,7 +14,7 @@ export const NavBar = () => {
     const [ isOpen, setIsOpen] = useState(false);
 
     return(
-        <Container>
+        <Container>            
             <LogoArea onClick={ () => setIsOpen(false)}>
                 <Link to="">
                     Rafael
@@ -35,8 +31,10 @@ export const NavBar = () => {
                     <Link onClick={() => setIsOpen(false)}  key={item.name} to={item.href} >
                         <MenuItem text={item.name} select={true}/>                      
                     </Link>                    
-                ))}                             
+                ))}          
+                <ThemeToggle menu={isOpen} openMenu={setIsOpen} />                   
             </Menu>
+            
         </Container>
     );
 }
