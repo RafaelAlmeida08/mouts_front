@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Filtro, FiltroArea, ItemFiltro } from "./styles";
+import { FiltroArea } from "./styles";
 
 export const SubMenu = ({items}) => {
     return(

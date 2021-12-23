@@ -2,24 +2,22 @@ import { CardArea, CategoriesList, Container, FilterArea, LeftContent, List, Loc
 import { NavBar } from "../../components/NavBar";
 import { Link } from "react-router-dom";
 import { Localidade } from "../../components/Localidade";
+import { SubMenu } from "../../components/SubMenu";
 
 export const Localidades = () => {
+
+    const itemsSubMenu = [
+        { name: 'Nova Localidade', href: '#'},
+        { name: 'Todas', href: '#'},
+        { name: 'Comercial', href: '#'},   
+        { name: 'Residencial', href: '#'},  
+        { name: 'Outros', href: '#'}  
+    ];
+
     return(
         <Container>
             <NavBar />
-            <FilterArea>
-                <LeftContent>
-                    <CategoriesList>
-                        <List>
-                            <li><span>Nova Localidade</span></li>
-                            <li><span>Todas</span></li>
-                            <li><span>Comercial</span></li>
-                            <li><span>Residencial</span></li>
-                            <li><span>Outros</span></li>
-                        </List>
-                    </CategoriesList>
-                </LeftContent>
-            </FilterArea>     
+            <SubMenu items={itemsSubMenu} />            
             <LocalArea>
                 <CardArea>
                     <Link to="/localidade/10">   
