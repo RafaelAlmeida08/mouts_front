@@ -6,7 +6,7 @@ import { ThemeToggle } from "../ThemeToggle";
 
 export const NavBar = () => {
     const navigation = [
-        { name: 'Localidades', href: '#'},
+        { name: 'Localidades', href: '/localidades'},
         { name: 'Cidades', href: '/cidades'},
         { name: 'Contribua', href: '#'}   
     ];
