@@ -3,10 +3,14 @@ import { NavBar } from '../../components/NavBar';
 import { Input } from "../../components/Input";
 import { useState } from "react";
 import { Select } from "../../components/Select";
+import { estados } from "../../utils/estados";
 
 export const CadastroCidade = () => {
+       
     const [ cidade, setCidade ] = useState('');
     const [ pais, setPais ] = useState('');
+    const [ estado, setEstado ] = useState(estados[0]);
+
     return(
         <Container>
             <NavBar/>
@@ -21,7 +25,8 @@ export const CadastroCidade = () => {
                         placeholder="Nome da Cidade"
                     />  
                     <Select
-                        opt={2}
+                        opt={estados}
+                        setValue={setEstado}
                     />            
                     <Input
                         value={pais} 

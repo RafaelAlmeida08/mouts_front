@@ -24,7 +24,7 @@ export const Container = styled.div`
         height: 50px;
         font-size: 18px;
         text-align: center;
-        /* color: ${props => props.theme.colors.inputText}; */
+        color: ${props => props.theme.colors.inputText};
         transition: .3s width ease-in-out;
         &:focus{
             outline: none;       
