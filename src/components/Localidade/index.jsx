@@ -3,8 +3,7 @@ import { Container, LocalContent, LocalDataLeft, LocalDataRight, LocalDays, Loca
 import localidade1 from '../../assets/images/house.jpg';
 import { Card } from "../Card";
 
-export const Localidade = ({data}) => {
-    console.log(data)
+export const Localidade = ({data}) => {    
     return(
         <Container>
             <Card img={localidade1}/>

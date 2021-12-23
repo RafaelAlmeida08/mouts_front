@@ -16,7 +16,7 @@ export const NavBar = () => {
     return(
         <Container>            
             <LogoArea onClick={ () => setIsOpen(false)}>
-                <Link to="">
+                <Link to="/">
                     Rafael
                     <span>Dev</span>
                 </Link>

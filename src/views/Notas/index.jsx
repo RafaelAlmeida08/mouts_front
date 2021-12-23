@@ -15,12 +15,13 @@ import { ThemeContext } from "styled-components";
 import Alert from '@mui/material/Alert';
 
 export const Notas = () => {
-    const { id } = useParams();
+    const { id } = useParams(); 
 
     const [ loading, setLoading ] = useState(false);
     const [ modalOpen, setModalOpen ] = useState(false);
     const [ registered, setRegistered ] = useState(false);
     const [ review, setReview ] = useState('');
+    const [ reviews, setReviews ] = useState([]);
     const [ done, setDone ] = useState(false);
     const { colors } = useContext(ThemeContext);
     const redirect = useNavigate();
@@ -30,7 +31,7 @@ export const Notas = () => {
         await axios({
             method: 'DELETE',
             url: `${baseURL}/localidades/${id}`
-        })
+        }) 
         .then( response => {
             alert('Localidade removida com sucesso')
             redirect("/localidades")         
@@ -38,6 +39,8 @@ export const Notas = () => {
         .catch(error => {console.log(error)})
         .finally( () => setLoading(false));
     }
+
+    useEffect(() => {},[])
 
     useEffect( async () => {
         if(done) {

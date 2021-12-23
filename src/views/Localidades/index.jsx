@@ -46,7 +46,7 @@ export const Localidades = () => {
                         <CardArea>
                             {
                                 localidades.map((localidade) => (
-                                <Link to={`/localidade/${localidade.id}`}>   
+                                <Link key={localidade.id} to={{ pathname: `/localidade/${localidade.id}`}}>   
                                     <Localidade data={localidade} /> 
                                 </Link> 
                                 ))                    
