@@ -69,6 +69,7 @@ export const CadastroCidade = () => {
                             <Select
                                 opt={estados}
                                 setValue={setEstado}
+                                label="Estado"
                             />
                             <Input
                                 value={pais}

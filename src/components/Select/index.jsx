@@ -1,12 +1,13 @@
 import { Container } from "./styles"
 
-export const Select = ({opt, setValue}) => {
+export const Select = ({opt, setValue, label, value}) => {    
     return(
         <Container>
-            <select onChange={e => setValue(e.target.value)} >
+            <label>{label} : </label>
+            <select value={value} onChange={e => setValue(e.target.value)} >                
                 {
                     opt.map( (op) => (
-                        <option key={op} >{op}</option>
+                        <option  key={op.id} value={op.id}>{op.nome}</option>
                     ))
                 }
             </select>

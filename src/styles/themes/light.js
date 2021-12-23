@@ -11,5 +11,6 @@ export default {
         inputText: '#68717A',  
         buttonText: '#fff',
         spinner: 'red',
+        labelSelect: 'red'
     }
 }

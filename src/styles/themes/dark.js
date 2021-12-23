@@ -10,6 +10,7 @@ export default {
         cardDetails: '#F8F9FA',
         inputText: 'white', 
         buttonText: '#fff',
-        spinner: 'white'
+        spinner: 'white',
+        labelSelect: '#68717A'
     }
 }
