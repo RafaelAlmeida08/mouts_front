@@ -4,6 +4,7 @@ import { Input } from "../../components/Input";
 import { useState } from "react";
 import { Select } from "../../components/Select";
 import { estados } from "../../utils/estados";
+import { Botao } from "../../components/Botao";
 
 export const CadastroCidade = () => {
        
@@ -33,7 +34,8 @@ export const CadastroCidade = () => {
                         setValue={setPais}
                         placeholder="Nome do Pais"
                     />                                                                    
-                </InputGroup>   
+                </InputGroup>
+                <Botao text="Registrar" />   
             </FormArea>
         </Container>
     );

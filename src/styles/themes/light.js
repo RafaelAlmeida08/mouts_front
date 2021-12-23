@@ -9,5 +9,6 @@ export default {
         menuItemHover: 'red',
         cardDetails: '#68717A',
         inputText: '#68717A',  
+        buttonText: '#fff',
     }
 }
