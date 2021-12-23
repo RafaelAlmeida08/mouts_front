@@ -30,7 +30,7 @@ export const Cidades = () => {
         .then( response => {
             setCidades(response.data)
         })
-        .catch( error => console.log(error))
+        .catch( error => console.log(error)) 
         .finally(() => setLoading(false))
     },[])
 

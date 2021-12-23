@@ -7,7 +7,7 @@ import { SubMenu } from "../../components/SubMenu";
 export const Localidades = () => {
 
     const itemsSubMenu = [
-        { name: 'Nova Localidade', href: '#'},
+        { name: 'Nova Localidade', href: '/cadastro/localidades'},
         { name: 'Todas', href: '#'},
         { name: 'Comercial', href: '#'},   
         { name: 'Residencial', href: '#'},  
@@ -15,7 +15,7 @@ export const Localidades = () => {
     ];
 
     return(
-        <Container>
+        <Container> 
             <NavBar />
             <SubMenu items={itemsSubMenu} />            
             <LocalArea>
