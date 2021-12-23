@@ -1,6 +1,7 @@
 import { CardArea, CategoriesList, Container, FilterArea, LeftContent, List, LocalArea } from "./styles";
 import { NavBar } from "../../components/NavBar";
 import { Link } from "react-router-dom";
+import { Localidade } from "../../components/Localidade";
 
 export const Localidades = () => {
     return(
@@ -21,7 +22,17 @@ export const Localidades = () => {
             </FilterArea>     
             <LocalArea>
                 <CardArea>
-                    <Link to="#">                    
+                    <Link to="#">   
+                        <Localidade/> 
+                    </Link> 
+                    <Link to="#">   
+                        <Localidade/> 
+                    </Link>
+                    <Link to="#">   
+                        <Localidade/> 
+                    </Link>
+                    <Link to="#">   
+                        <Localidade/> 
                     </Link>
                 </CardArea>
             </LocalArea>      

@@ -42,21 +42,28 @@ export const List = styled.ul`
 `;
 
 export const LocalArea = styled.div`   
-    display: flex;
-    flex-wrap: wrap;      
+    display: flex;   
     justify-content: center;    
     margin-top: 50px;
     a{
         text-decoration: none;
-        padding-right: 40px;
+        /* padding-right: 40px; */
     }
 `;
 
 export const Container = styled.div`
-margin-left: 20px;  
+    /* margin-left: 20px;   */
 `;
 
 export const CardArea = styled.div`
-    padding-right: 40px;
-    padding-left: 40px;
+    /* padding-right: 40px;
+    padding-left: 40px; */
+    display: flex;  
+    flex-wrap: wrap;
+    @media(max-width: ${breakPoints.md.value}px) {
+        justify-content: center;
+        flex-direction: column;
+
+    }    
+    
 `;
