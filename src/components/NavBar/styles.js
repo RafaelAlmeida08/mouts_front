@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const breakPoints = {
     md: {
-        value: 720
+        value: 765
     }
 }; 
 
@@ -13,6 +13,7 @@ export const Container = styled.div`
     align-items: center;
     flex-wrap: wrap;
     margin-top: 30px;  
+    margin-bottom: 50px;
 `;
 
 export const Hamburguer = styled.div`
