@@ -15,7 +15,7 @@ export const Container = styled.div`
         cursor: pointer; 
         text-align: center; 
         text-decoration: none; 
-        color: 'white'
+        color: ${(props) => props.theme.colors.menuItem}; 
         font-size: 20px; 
         font-weight: light; 
         font-stretch: normal; 
@@ -27,7 +27,7 @@ export const Container = styled.div`
         flex-direction: column; 
         align-items: center; 
         &:hover{ 
-            color: 'red'
+            color: ${(props) => props.theme.colors.menuItemHover}; 
         } 
         @media(max-width: ${breakPoints.md.value}px) { 
             margin-top: 10px;

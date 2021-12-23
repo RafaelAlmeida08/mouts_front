@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const breakPoints = {
     md: {
-        value: 580
+        value: 660
     }
 }; 
 
@@ -24,7 +24,7 @@ export const Hamburguer = styled.div`
         width: 25px;       
         margin-bottom: 4px;
         border-radius: 5px;
-        background: red;
+        background: ${(props) => props.theme.colors.hamburguer};
     }
     @media(max-width: ${breakPoints.md.value}px) {
         display: flex;
@@ -37,7 +37,7 @@ export const Menu = styled.div`
     align-items: center;
     position: relative;
     transition: 0.2s ease-in;   
-    a {
+    a{
         text-decoration: none; 
     }
     @media(max-width: ${breakPoints.md.value}px) {
@@ -52,7 +52,7 @@ export const LogoArea = styled.div`
     a{
         padding: 1rem 0;
         text-decoration: none;
-        color: red;
+        color: ${(props) => props.theme.colors.logo};
         font-weight: 800;
         font-size: 1.7rem;   
         span{
