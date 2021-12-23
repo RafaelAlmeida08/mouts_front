@@ -8,41 +8,17 @@ const breakPoints = {
 
 export const Container = styled.div``;
 
-export const Filtro = styled.ul``;
+export const Content = styled.ul`
+    display: flex;
+    justify-content: center;
 
-export const ItemFiltro = styled.li``;
-
-export const FiltroArea = styled.div`
-    ul{
-        display:flex;   
-        flex-wrap: wrap; 
-        li{
-            padding-right: 20px;
-            list-style: none;       
-        }
-        a{
-            text-decoration: none;
-        }
-        span{
-            color: ${(props) => props.theme.colors.menuItem};
-            font-size: 24px;
-            cursor: pointer;
-            transition: all 0.3s ease-in;
-            &:hover{
-                color: red;            
-            }
-        }
-        @media(max-width: ${breakPoints.md.value}px) {
-            justify-content: center;
-        }    
-    }
 `;
 
 export const CidadeDados = styled.div`
     display: flex;
     align-items: center;
     margin-left: 5px;
-    margin-top: -0.45rem;
+    margin-top: -0.5rem;
     h4{
         padding-left: 5px;
         color: ${props => props.theme.colors.cardDetails}

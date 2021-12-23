@@ -9,11 +9,11 @@ export const Router = () => {
     return(
         <BrowserRouter>            
              <Routes>
-                <Route exact path="/2" element={<Home />} />   
+                <Route exact path="/" element={<Home />} />   
                 <Route exact path="cidades" element={<Cidades />} />     
                 <Route exact path="localidades" element={<Localidades />} />          
                 <Route exact path="localidade/:id" element={<Notas />} />   
-                <Route exact path="/" element={<CadastroCidade />} />  
+                <Route exact path="/cadastro/cidades" element={<CadastroCidade />} />  
             </Routes>
         </BrowserRouter>
     );
