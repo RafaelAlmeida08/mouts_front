@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import localidade from '../../assets/images/house.jpg';
 import { Botao } from "../../components/Botao";
 import axios from "axios";
-import { baseURL } from "../../utils/api";
+import { baseURL, deleteLocalidade } from "../../utils/api";
 import { ModalC } from "../../components/Modal";
 import Loader from "react-loader-spinner";
 import { ThemeContext } from "styled-components";
@@ -28,10 +28,7 @@ export const Notas = () => {
 
     const apagarLocalidade = async () => {
         setLoading(true)
-        await axios({
-            method: 'DELETE',
-            url: `${baseURL}/localidades/${id}`
-        }) 
+        deleteLocalidade(id)
         .then( response => {
             alert('Localidade removida com sucesso')
             redirect("/localidades")         
@@ -39,8 +36,6 @@ export const Notas = () => {
         .catch(error => {console.log(error)})
         .finally( () => setLoading(false));
     }
-
-    useEffect(() => {},[])
 
     useEffect( async () => {
         if(done) {

@@ -45,4 +45,12 @@ export async function showLocalidade(id) {
     })
     .then(response => response.data);     
 }
+
+export async function deleteLocalidade(id) {
+    return await axios({
+        method: 'DELETE',
+        url: `${baseURL}/localidades/${id}`
+    }) 
+    .then(response => response.data);     
+}
  
