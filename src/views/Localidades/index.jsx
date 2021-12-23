@@ -1,7 +1,30 @@
+import { CardArea, CategoriesList, Container, FilterArea, LeftContent, List, LocalArea } from "./styles";
+import { NavBar } from "../../components/NavBar";
+import { Link } from "react-router-dom";
+
 export const Localidades = () => {
     return(
-        <div>
-            Localidades
-        </div>
+        <Container>
+            <NavBar />
+            <FilterArea>
+                <LeftContent>
+                    <CategoriesList>
+                        <List>
+                            <li><span>Nova Localidade</span></li>
+                            <li><span>Todas</span></li>
+                            <li><span>Comercial</span></li>
+                            <li><span>Residencial</span></li>
+                            <li><span>Outros</span></li>
+                        </List>
+                    </CategoriesList>
+                </LeftContent>
+            </FilterArea>     
+            <LocalArea>
+                <CardArea>
+                    <Link to="#">                    
+                    </Link>
+                </CardArea>
+            </LocalArea>      
+        </Container>
     );
 }
