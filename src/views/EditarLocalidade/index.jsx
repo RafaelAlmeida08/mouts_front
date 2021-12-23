@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { NavBar } from "../../components/NavBar";
-import { baseURL } from "../../utils/api";
+import { baseURL, getCidades, getTipos, showLocalidade, updateLocalidade } from "../../utils/api";
 import axios from "axios";
 import { Localidade } from "../../components/Localidade";
 import { Botao } from "../../components/Botao";
@@ -31,39 +31,30 @@ export const EditarLocalidades = () => {
     const [ cidade, setCidade ] = useState();    
 
     useEffect( async () => {     
-        await axios({
-            method: 'GET',
-            url: `${baseURL}/cidades`
-        })
+        getCidades()
         .then( response => {
-            response.data.forEach( (response) => {
+            response.forEach( (response) => {
                 setCidades(cidades => [...cidades, response])              
             })
-            setCidade(response.data[0].id)
+            setCidade(response[0].id)
          })
         .catch(error => console.log(error))        
 
-        await axios({
-            method: 'GET',
-            url: `${baseURL}/localidadestipos`
-        })
+        getTipos()
         .then( response => {
-            response.data.forEach( (response) => {
+            response.forEach( (response) => {
                 setTipos(tipos => [...tipos, response])              
             })
-            setTipo(response.data[0].id)
+            setTipo(response[0].id)
          })
         .catch(error => console.log(error))        
 
-        await axios({
-            method: 'GET',
-            url: `${baseURL}/localidades/show/${id}`
-        })
+        showLocalidade(id)
         .then( response => {
-            setNome(response.data.nome);
-            setTipo(response.data.tipo.id);
-            setEndereco(response.data.endereco)
-            setCidade(response.data.cidade.id)    
+            setNome(response.nome);
+            setTipo(response.tipo.id);
+            setEndereco(response.endereco)
+            setCidade(response.cidade.id)    
         })
         .catch(error => console.log(error))
         .finally(() => {setLoading(false)})
@@ -72,21 +63,12 @@ export const EditarLocalidades = () => {
     useEffect(() => {
         updated && setTimeout( () => { 
             setUpdated(false)
-        }, 3000)
+        }, 2000)
     }, [updated])
 
     const atualizar = async () => { 
         setLoading(true)
-        await axios({
-            method: 'PUT',
-            url: `${baseURL}/localidades/${id}`,
-            data: {
-                nome: nome,
-                tipo: tipo,
-                endereco: endereco,
-                cidade: cidade
-            }
-        })
+        updateLocalidade({nome, tipo, endereco, cidade}, id)
         .then(response => setUpdated(true))
         .catch(error => console.log(error))
         .finally(() => {setLoading(false)})

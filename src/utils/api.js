@@ -28,3 +28,21 @@ export async function postCidades(data) {
     })
     .then(response => response.data);     
 }
+
+export async function updateLocalidade(data, id) {
+    return await axios({
+        method: 'PUT',
+        url: `${baseURL}/localidades/${id}`,
+        data: data
+    })
+    .then(response => response.data);     
+}
+
+export async function showLocalidade(id) {
+    return await axios({
+        method: 'GET',
+        url: `${baseURL}/localidades/show/${id}`
+    })
+    .then(response => response.data);     
+}
+ 

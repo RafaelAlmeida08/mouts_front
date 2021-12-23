@@ -38,7 +38,7 @@ export const CadastroCidade = () => {
     useEffect(() => {
         registered && setTimeout( () => { 
             setRegistered(false)
-        }, 3000)
+        }, 2000)
     }, [registered])
 
     return(

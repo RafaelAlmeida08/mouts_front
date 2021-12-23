@@ -51,7 +51,7 @@ export const CadastroLocalidade = () => {
     useEffect(() => {
         registered && setTimeout( () => { 
             setRegistered(false)
-        }, 3000)
+        }, 2000)
     }, [registered])
 
     const registrar = async () => {
