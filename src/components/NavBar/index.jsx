@@ -1,10 +1,9 @@
-import { NavBar } from "../../components/NavBar";
 import { Container } from "./styles";
 
-export const Home = () => {
+export const NavBar = () => {
     return(
         <Container>
-            <NavBar/>
+            Navbar
         </Container>
     );
 }
