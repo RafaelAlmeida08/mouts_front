@@ -6,9 +6,7 @@ const breakPoints = {
     }
 }
 
-export const Container = styled.div`
-    margin-left: 20px;   
-`;
+export const Container = styled.div``;
 
 export const Filtro = styled.ul``;
 

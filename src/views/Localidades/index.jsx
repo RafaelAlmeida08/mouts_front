@@ -22,7 +22,7 @@ export const Localidades = () => {
             </FilterArea>     
             <LocalArea>
                 <CardArea>
-                    <Link to="#">   
+                    <Link to="/localidade/10">   
                         <Localidade/> 
                     </Link> 
                     <Link to="#">   
