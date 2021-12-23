@@ -10,13 +10,10 @@ const breakPoints = {
 }
 
 export const Container = styled.div`
-    margin-left: 20px;
-   
+    margin-left: 20px;   
 `;
 
-export const Filtro = styled.ul`
-   
-`;
+export const Filtro = styled.ul``;
 
 export const ItemFiltro = styled.li``;
 
@@ -49,15 +46,11 @@ export const FiltroArea = styled.div`
 export const CidadeDados = styled.div`
     display: flex;
     align-items: center;
-    margin-left: 10px;
+    margin-left: 5px;
+    margin-top: -0.45rem;
     h4{
         padding-left: 5px;
-        color: ${props => props.theme.colors.text}
-    },
-    span{
-        color: ${props => props.theme.colors.text};
-        margin-top: -7px;
-        margin-left: 6px;
+        color: ${props => props.theme.colors.cardDetails}
     }
 `;
 
@@ -69,9 +62,9 @@ export const CidadeDescricao = styled.div`
 `;
 
 export const CidadeNome = styled.div`
-margin-top: -7px;
-h3{
-        color: ${props => props.theme.colors.text}
+    margin-top: -7px;
+    h3{
+        color: ${props => props.theme.colors.cardDetails}
     }
 `;
 

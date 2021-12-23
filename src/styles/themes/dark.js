@@ -7,5 +7,6 @@ export default {
         logo: 'white',
         menuItem: '#F8F9FA',
         menuItemHover: 'red',
+        cardDetails: '#F8F9FA'
     }
 }

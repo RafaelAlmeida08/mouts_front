@@ -1,5 +1,9 @@
-export const Card = () => {
+import { Container } from "./styles";
+
+export const Card = ({img}) => {
     return(
-        <div>Card</div>
+        <Container>
+            <img src={img} />
+        </Container>
     );
 }

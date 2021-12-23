@@ -2,6 +2,8 @@ import { NavBar } from "../../components/NavBar";
 import { Cidade, CidadeDados, CidadeDescricao, CidadeNome, CidadesArea, Container, Filtro, FiltroArea, ItemFiltro } from "./styles";
 import { Card } from "../../components/Card";
 
+import cidade1 from "../../assets/images/city1.jpg";
+
 export const Cidades = () => {
     return(
         <Container>
@@ -15,15 +17,13 @@ export const Cidades = () => {
             </FiltroArea>
             <CidadesArea>
                 <Cidade>
-                    <Card/>
+                    <Card img={cidade1} />
                     <CidadeDescricao>
                         <CidadeNome>
-                            <h3>Nome da cidade</h3>
+                            <h3>Nome da cidade, </h3>
                         </CidadeNome>
                         <CidadeDados>
-                            <h4>RJ</h4>
-                            <span>-</span>
-                            <h4>Brasil</h4>
+                            <h4>RJ</h4>                            
                         </CidadeDados>
                     </CidadeDescricao>
                 </Cidade>
