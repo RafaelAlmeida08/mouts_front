@@ -6,11 +6,6 @@ import { ButtonArea, Center, Container, TextArea } from "./styles";
 import getCidades from "../../utils/api";
 
 export const Home = () => {
-
-    useEffect(async () => {
-        getCidades();
-    },[])
-
     return(
         <Container>
             <NavBar/>

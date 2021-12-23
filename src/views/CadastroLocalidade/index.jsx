@@ -4,7 +4,7 @@ import { NavBar } from "../../components/NavBar";
 import { Select } from "../../components/Select";
 import { AlertArea, Container, Content, FormArea, InputGroup, Title } from "./styles";
 import axios from "axios";
-import { baseURL } from "../../utils/api";
+import { baseURL, getCidades, getTipos, postLocalidades } from "../../utils/api";
 import { Botao } from "../../components/Botao";
 import Loader from "react-loader-spinner";
 import { ThemeContext } from "styled-components";
@@ -21,34 +21,27 @@ export const CadastroLocalidade = () => {
     const [ nome, setNome ] = useState('');   
     const [ endereco, setEndereco ] = useState('');    
     const [ tipo, setTipo ] = useState();
-    const [ cidade, setCidade ] = useState();    
-    
+    const [ cidade, setCidade ] = useState();  
 
-    useEffect( async () => {
+    useEffect(() => {
         setLoading(true);
 
-        await axios({
-            method: 'GET',
-            url: `${baseURL}/cidades`
-        })
+        getCidades()
         .then( response => {
-            response.data.forEach( (response) => {
+            response.forEach( (response) => {
                 setCidades(cidades => [...cidades, response])              
             })
-            setCidade(response.data[0].id)
+            setCidade(response[0].id)
          })
         .catch(error => console.log(error))
-        .finally(() => {setLoading(false)})
+              
 
-        await axios({
-            method: 'GET',
-            url: `${baseURL}/localidadestipos`
-        })
+        getTipos()
         .then( response => {
-            response.data.forEach( (response) => {
+            response.forEach( (response) => {
                 setTipos(tipos => [...tipos, response])              
             })
-            setTipo(response.data[0].id)
+            setTipo(response[0].id)
          })
         .catch(error => console.log(error))
         .finally(() => {setLoading(false)})
@@ -67,16 +60,7 @@ export const CadastroLocalidade = () => {
             return false;
         }else{            
             setLoading(true)        
-            await axios ({
-                method: 'POST',
-                url: `${baseURL}/localidades`,
-                data: {
-                    nome: nome,
-                    tipo: tipo,
-                    endereco: endereco,
-                    cidade: cidade
-                }           
-            })
+            postLocalidades({nome, tipo, endereco, cidade})
             .then()
             .catch(error => console.log(error))
             .finally(() => {

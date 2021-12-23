@@ -2,7 +2,7 @@ import { NavBar } from "../../components/NavBar";
 import { Cidade, CidadeDados, CidadeDescricao, CidadeNome, CidadesArea, Container, Content } from "./styles";
 import { Card } from "../../components/Card";
 import axios from "axios";
-import Api, { baseURL } from "../../utils/api";
+import { baseURL, getCidades } from "../../utils/api";
 import cidade1 from "../../assets/images/city1.jpg";
 import Loader from "react-loader-spinner";
 import { useContext, useEffect, useState } from "react";
@@ -22,8 +22,8 @@ export const Cidades = () => {
     ]
 
     useEffect( async () => {
-        // setLoading(true)
-        await Api.getCidades()
+        setLoading(true)
+        getCidades()
         .then( response => {
             setCidades(response.data)
         })
