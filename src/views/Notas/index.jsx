@@ -20,6 +20,8 @@ export const Notas = () => {
                 </CardArea>
                 <Reviews>
                     <Review/>
+                    <Review/>
+                    <Review/>
                 </Reviews>
             </Content>           
         </Container>

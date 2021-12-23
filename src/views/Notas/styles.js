@@ -7,11 +7,14 @@ const breakPoints = {
     }
 }
 
-export const Container = styled.div``;
+export const Container = styled.div`
+ 
+`;
 export const Content = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 100px;
 `;
 export const CardArea = styled.div`
     display: flex;
