@@ -68,8 +68,7 @@ export const CadastroCidade = () => {
                             />
                             <Select
                                 opt={estados}
-                                setValue={setEstado}
-                                value={estados[0]}
+                                setValue={setEstado}                                
                                 label="Estado"
                                 fixo={true}
                             />
