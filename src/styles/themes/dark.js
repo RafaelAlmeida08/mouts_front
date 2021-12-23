@@ -10,5 +10,6 @@ export default {
         cardDetails: '#F8F9FA',
         inputText: 'white', 
         buttonText: '#fff',
+        spinner: 'white'
     }
 }
