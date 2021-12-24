@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import localidade from '../../assets/images/house.jpg';
 import { Botao } from "../../components/Botao";
 import axios from "axios";
-import { baseURL, deleteLocalidade } from "../../utils/api";
+import { baseURL, deleteLocalidade, showLocalidade } from "../../utils/api";
 import { ModalC } from "../../components/Modal";
 import Loader from "react-loader-spinner";
 import { ThemeContext } from "styled-components";
@@ -36,6 +36,9 @@ export const Notas = () => {
         .catch(error => {console.log(error)})
         .finally( () => setLoading(false));
     }
+
+    useEffect(() => {
+    }, [])
 
     useEffect( async () => {
         if(done) {

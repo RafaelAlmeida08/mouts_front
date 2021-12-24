@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { NavBar } from "../../components/NavBar";
-import { baseURL, getCidades, getTipos, showLocalidade, updateLocalidade } from "../../utils/api";
+import { baseURL, getCidades, getCategorias, showLocalidade, updateLocalidade } from "../../utils/api";
 import axios from "axios";
 import { Localidade } from "../../components/Localidade";
 import { Botao } from "../../components/Botao";
@@ -23,11 +23,11 @@ export const EditarLocalidades = () => {
     const { colors } = useContext(ThemeContext);
 
     const [ cidades, setCidades ] = useState([]);
-    const [ tipos, setTipos ] = useState([]);
+    const [ categorias, setCategorias ] = useState([]);
 
     const [ nome, setNome ] = useState('');   
     const [ endereco, setEndereco ] = useState('');    
-    const [ tipo, setTipo ] = useState();
+    const [ categoria, setCategoria ] = useState();
     const [ cidade, setCidade ] = useState();    
 
     useEffect( async () => {     
@@ -40,19 +40,19 @@ export const EditarLocalidades = () => {
          })
         .catch(error => console.log(error))        
 
-        getTipos()
+        getCategorias()
         .then( response => {
             response.forEach( (response) => {
-                setTipos(tipos => [...tipos, response])              
+                setCategorias(categorias => [...categorias, response])              
             })
-            setTipo(response[0].id)
+            setCategoria(response[0].id)
          })
         .catch(error => console.log(error))        
 
         showLocalidade(id)
         .then( response => {
             setNome(response.nome);
-            setTipo(response.tipo.id);
+            setCategoria(response.categoria.id);
             setEndereco(response.endereco)
             setCidade(response.cidade.id)    
         })
@@ -68,7 +68,7 @@ export const EditarLocalidades = () => {
 
     const atualizar = async () => { 
         setLoading(true)
-        updateLocalidade({nome, tipo, endereco, cidade}, id)
+        updateLocalidade({nome, categoria, endereco, cidade}, id)
         .then(response => setUpdated(true))
         .catch(error => console.log(error))
         .finally(() => {setLoading(false)})
@@ -102,10 +102,10 @@ export const EditarLocalidades = () => {
                                     setValue={setNome}
                                 />
                                 <Select
-                                    opt={tipos}
-                                    setValue={setTipo}
-                                    value={tipo}
-                                    label="Tipo"
+                                    opt={categorias}
+                                    setValue={setCategoria}
+                                    value={categoria}
+                                    label="Categoria"
                                 />
                                 <Input
                                     placeholder="Endereço"

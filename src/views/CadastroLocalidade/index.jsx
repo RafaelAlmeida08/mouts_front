@@ -4,7 +4,7 @@ import { NavBar } from "../../components/NavBar";
 import { Select } from "../../components/Select";
 import { AlertArea, Container, Content, FormArea, InputGroup, Title } from "./styles";
 import axios from "axios";
-import { baseURL, getCidades, getTipos, postLocalidades } from "../../utils/api";
+import { baseURL, getCidades, getCategorias, postLocalidades } from "../../utils/api";
 import { Botao } from "../../components/Botao";
 import Loader from "react-loader-spinner";
 import { ThemeContext } from "styled-components";
@@ -16,11 +16,11 @@ export const CadastroLocalidade = () => {
     const [ registered, setRegistered ] = useState(false); 
 
     const [ cidades, setCidades ] = useState([]);
-    const [ tipos, setTipos ] = useState([]);
+    const [ categorias, setCategorias ] = useState([]);
 
     const [ nome, setNome ] = useState('');   
     const [ endereco, setEndereco ] = useState('');    
-    const [ tipo, setTipo ] = useState();
+    const [ categoria, setCategoria ] = useState();
     const [ cidade, setCidade ] = useState();  
 
     useEffect(() => {
@@ -36,12 +36,12 @@ export const CadastroLocalidade = () => {
         .catch(error => console.log(error))
               
 
-        getTipos()
+        getCategorias()
         .then( response => {
             response.forEach( (response) => {
-                setTipos(tipos => [...tipos, response])              
+                setCategorias(categorias => [...categorias, response])              
             })
-            setTipo(response[0].id)
+            setCategoria(response[0].id)
          })
         .catch(error => console.log(error))
         .finally(() => {setLoading(false)})
@@ -60,7 +60,7 @@ export const CadastroLocalidade = () => {
             return false;
         }else{            
             setLoading(true)        
-            postLocalidades({nome, tipo, endereco, cidade})
+            postLocalidades({nome, categoria, endereco, cidade})
             .then()
             .catch(error => console.log(error))
             .finally(() => {
@@ -94,10 +94,10 @@ export const CadastroLocalidade = () => {
                                         placeholder="Nome da localidade"
                                     />
                                     <Select
-                                        opt={tipos}
-                                        setValue={setTipo}
-                                        value={tipo}
-                                        label="Tipo"
+                                        opt={categorias}
+                                        setValue={setCategoria}
+                                        value={categoria}
+                                        label="Categoria"
                                     />
                                     <Input
                                         value={endereco}

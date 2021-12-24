@@ -1,14 +1,14 @@
 
 import axios from "axios";
 
-export const baseURL = 'http://localhost:3333';
+export const baseURL = 'https://moutsback.herokuapp.com';
 
 export async function getCidades() {
     return await axios.get(`${baseURL}/cidades`).then(response => response.data);     
 }
 
-export async function getTipos() {
-    return await axios.get(`${baseURL}/localidadestipos`).then(response => response.data);     
+export async function getCategorias() {
+    return await axios.get(`${baseURL}/categorias`).then(response => response.data);     
 }
 
 export async function postLocalidades(data) {
