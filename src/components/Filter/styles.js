@@ -1,7 +1,19 @@
 import styled from "styled-components";
 
+const breakPoints = {
+    md: {
+        value: 780
+    },
+    sm: {
+        value: 620
+    }
+}
+
 export const Container = styled.div`
     padding-left: 20px;
+    @media(max-width: ${breakPoints.sm.value}px) {       
+        padding-left: 0px;
+    }  
 `;
 
 export const ButtonArea = styled.div`

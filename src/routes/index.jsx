@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, BrowserRouter, HashRouter } from 'react-router-dom';
 import { CadastroCidade } from '../views/CadastroCidade';
 import { CadastroLocalidade } from '../views/CadastroLocalidade';
 import { Cidades } from '../views/Cidades';
@@ -9,7 +9,7 @@ import { Notas } from '../views/Notas';
 
 export const Router = () => {
     return(
-        <BrowserRouter>            
+        <HashRouter>            
              <Routes>
                 <Route exact path="/" element={<Home />} />   
                 <Route exact path="cidades" element={<Cidades />} />     
@@ -20,6 +20,6 @@ export const Router = () => {
                 <Route exact path="/cadastro/localidades" element={<CadastroLocalidade />} />  
                 
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     );
 }

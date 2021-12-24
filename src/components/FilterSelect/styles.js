@@ -14,6 +14,7 @@ export const Container = styled.div`
     text-align: center;
     @media(max-width: ${breakPoints.sm.value}px) {
         margin-top: 30px;
+        padding-left: 0px;
     }  
 `;
 

@@ -1,16 +1,11 @@
-import { Button, ButtonArea, Container, Item, SelectArea } from "./styles";
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import { ButtonArea, Container, Item, SelectArea } from "./styles";
 import { useEffect, useState } from "react";
-import { getCidades, getLocalidades } from "../../service/api";
+import { getCidades } from "../../service/api";
 
-export const FilterSelect = ({data, setData, label, original}) => {
-   
+export const FilterSelect = ({data, setData, label, original}) => {   
     const [ openSelect, setOpenSelect] = useState(false);
-    const [ check, setCheck ] = useState(false);
     const [ cidades, setCidades ] = useState([]);
-    const [loading, setLoading ] = useState(true);
-    
+    const [loading, setLoading ] = useState(true);  
 
     useEffect(() => {
         getCidades()        
@@ -33,12 +28,9 @@ export const FilterSelect = ({data, setData, label, original}) => {
             let filtrado = [...original];    
             filtrado = filtrado.filter( el => el.cidade.nome === cidade )
             setData(filtrado)       
-        }     
-        
+        }   
     }
-
     
-
     return(
         <Container>         
             {

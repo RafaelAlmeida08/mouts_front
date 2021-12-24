@@ -11,7 +11,7 @@ const breakPoints = {
 
 export const Container = styled.div``;
 
-export const Content = styled.ul`
+export const Content = styled.div`
     display: flex;   
     justify-content: center;    
     margin-top: 50px;
@@ -62,7 +62,7 @@ export const Cidade = styled.div`
     }
     img{
         margin-bottom: 10px;
-    }
+    }   
 `;
 
 export const Bar = styled.div`
