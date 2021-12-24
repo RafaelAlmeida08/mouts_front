@@ -11,6 +11,10 @@ export default {
         inputText: '#68717A',  
         buttonText: '#fff',
         spinner: 'red',
-        labelSelect: 'red'
+        labelSelect: 'red',
+        filterBackground : 'white',
+        filterTextColor : '#68717A',
+        filterBorder : 'black',
+        filterborderHover : '0.5'       
     }
 }
