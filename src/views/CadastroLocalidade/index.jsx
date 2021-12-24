@@ -14,6 +14,8 @@ export const CadastroLocalidade = () => {
     const [ loading, setLoading ] = useState(false);
     const { colors } = useContext(ThemeContext);
     const [ registered, setRegistered ] = useState(false); 
+    const [ error, setError ] = useState(false);
+    const [ errorMessage, setErrorMessage ] = useState('')
 
     const [ cidades, setCidades ] = useState([]);
     const [ categorias, setCategorias ] = useState([]);
@@ -50,24 +52,28 @@ export const CadastroLocalidade = () => {
 
     useEffect(() => {
         registered && setTimeout( () => { 
-            setRegistered(false)
+            setRegistered(false)           
         }, 2000)
-    }, [registered])
+        error && setTimeout( () => { 
+            setError(false)           
+        }, 2000)
+    }, [registered, error])
 
-    const registrar = async () => {
-        if(nome === '' || endereco === '') {
-            alert('Favor preencher todos os campos');
-            return false;
-        }else{            
-            setLoading(true)        
-            postLocalidades({nome, categoria, endereco, cidade})
-            .then()
-            .catch(error => console.log(error))
-            .finally(() => {
-                setLoading(false)
-                setRegistered(true)
-            })
-        }
+    const registrar = async () => {             
+        setLoading(true)        
+        postLocalidades({nome, categoria, endereco, cidade})
+        .then( response => {
+            setRegistered(true);
+            setNome('');
+            setEndereco('')
+        })
+        .catch(error => {
+            setErrorMessage(error.response.data.message)
+            setError(true)
+        })
+        .finally(() => {
+            setLoading(false)           
+        })        
     };
 
     return(
@@ -78,6 +84,11 @@ export const CadastroLocalidade = () => {
                     {registered && 
                         <Alert variant="filled" severity="success">
                             Localidade registrada com sucesso!
+                        </Alert>
+                    }
+                    {error && 
+                        <Alert variant="filled" severity="error">
+                            {errorMessage}
                         </Alert>
                     }
                 </AlertArea>            

@@ -1,4 +1,4 @@
-import { CardArea, CategoriesList, Container, FilterArea, LeftContent, List, LocalArea } from "./styles";
+import { AlertArea, CardArea,  Container, LocalArea } from "./styles";
 import { NavBar } from "../../components/NavBar";
 import { Link } from "react-router-dom";
 import { Localidade } from "../../components/Localidade";
@@ -8,6 +8,7 @@ import { baseURL } from "../../utils/api";
 import axios from "axios";
 import Loader from "react-loader-spinner";
 import { ThemeContext } from "styled-components";
+import Alert from '@mui/material/Alert';
 
 export const Localidades = () => {
 
@@ -39,7 +40,14 @@ export const Localidades = () => {
     return(
         <Container> 
             <NavBar />
-            <SubMenu items={itemsSubMenu} /> 
+            <SubMenu items={itemsSubMenu} />             
+                {!loading && localidades.length < 1 && 
+                    <AlertArea>
+                        <Alert variant="filled" severity="info">
+                            Nenhuma localidade cadastrada
+                        </Alert>
+                    </AlertArea> 
+                }                
             <LocalArea>
                 {
                     !loading ?                
