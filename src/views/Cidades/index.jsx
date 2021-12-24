@@ -9,6 +9,7 @@ import { ThemeContext } from "styled-components";
 import { SubMenu } from "../../components/SubMenu";
 import { Pipeline } from "../../components/Pipeline";
 import { Filter } from "../../components/Filter";
+import { FilterSelect } from "../../components/FilterSelect";
 
 export const Cidades = () => {
 
@@ -18,7 +19,7 @@ export const Cidades = () => {
     const [ up, setUp ] = useState(false);
 
     const itemsSubMenu = [        
-        { name: 'Nova', href: '/cadastro/cidades'},          
+        { name: 'Nova cidade', href: '/cadastro/cidades'},          
     ]
 
     useEffect( async () => {
@@ -43,9 +44,8 @@ export const Cidades = () => {
                     orderBy="nome"
                     up={up}
                     setUp={setUp}
-                />  
-            </Bar>
-            
+                />                  
+            </Bar>            
             <Content>
             {
                 !loading ?

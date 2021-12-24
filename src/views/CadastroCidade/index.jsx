@@ -18,7 +18,7 @@ export const CadastroCidade = () => {
     const [ estado, setEstado ] = useState(estados[0]);
     const [ error, setError ] = useState(false);
     const [ errorMessage, setErrorMessage ] = useState('')
-    const [ loading, setLoading ] = useState(true);
+    const [ loading, setLoading ] = useState(false);
     const [ registered, setRegistered ] = useState(false);
     const { colors } = useContext(ThemeContext)   
 

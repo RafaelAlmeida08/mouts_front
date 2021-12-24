@@ -123,7 +123,7 @@ export const Notas = () => {
                                         </Link> 
                                     </AreaBotao> 
                                 </Botoes>                                       
-                                <h1>Avaliações</h1>
+                                <h1>{notas.length > 0 ? 'Avaliações' : 'Ainda não há avaliações' }</h1>
                             </CardArea>                
                             <Reviews>
                                 {
@@ -135,7 +135,7 @@ export const Notas = () => {
                                             data={utcToLocal(nota.created_at)}
                                             review={nota.descricao}
                                         />
-                                    ))
+                                    ))                                   
                                 }
                             </Reviews>
                         </Content> 

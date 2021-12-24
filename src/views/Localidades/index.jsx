@@ -22,7 +22,7 @@ export const Localidades = () => {
     const [ original, setOriginal ] = useState([]);
 
     const itemsSubMenu = [
-        { name: 'Nova Localidade', href: '/cadastro/localidades'}        
+        { name: 'Nova localidade', href: '/cadastro/localidades'}        
     ];
 
     useEffect( async () => {
