@@ -19,9 +19,9 @@ export const Localidades = () => {
     const itemsSubMenu = [
         { name: 'Nova Localidade', href: '/cadastro/localidades'},
         { name: 'Todas', href: '#'},
-        { name: 'Comercial', href: '#'},   
-        { name: 'Residencial', href: '#'},  
-        { name: 'Outros', href: '#'}  
+        // { name: 'Comercial', href: '#'},   
+        // { name: 'Residencial', href: '#'},  
+        // { name: 'Outros', href: '#'}  
     ];
 
     useEffect( async () => {
@@ -33,10 +33,15 @@ export const Localidades = () => {
         .finally(() => setLoading(false))
     },[])
 
+    const ordenaPorTipo = () => {
+        console.log(localidades.filter(e => e.categoria.id === 3))
+    }
+
     return(
         <Container> 
             <NavBar />
-            <SubMenu items={itemsSubMenu} />             
+            <button onClick={() => ordenaPorTipo()} >Filtrar</button>
+            <SubMenu items={itemsSubMenu} />                   
                 {!loading && localidades.length < 1 && 
                     <AlertArea>
                         <Alert variant="filled" severity="info">
