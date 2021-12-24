@@ -1,7 +1,7 @@
 import { NavBar } from "../../components/NavBar";
 import { Cidade, CidadeDados, CidadeDescricao, CidadeNome, CidadesArea, Container, Content, Bar } from "./styles";
 import { Card } from "../../components/Card";
-import { getCidades } from "../../utils/api";
+import { getCidades } from "../../service/api";
 import cidade1 from "../../assets/images/city1.jpg";
 import Loader from "react-loader-spinner";
 import { useContext, useEffect, useState } from "react";

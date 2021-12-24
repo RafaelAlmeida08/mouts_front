@@ -9,7 +9,7 @@ import { Botao } from "../../components/Botao";
 import Loader from "react-loader-spinner";
 import { ThemeContext } from "styled-components";
 import Alert from '@mui/material/Alert';
-import { postCidades } from "../../utils/api";
+import { postCidades } from "../../service/api";
 
 export const CadastroCidade = () => {
        

@@ -2,7 +2,7 @@ import { Button, ButtonArea, Container, Item, SelectArea } from "./styles";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import { useEffect, useState } from "react";
-import { getCidades, getLocalidades } from "../../utils/api";
+import { getCidades, getLocalidades } from "../../service/api";
 
 export const FilterSelect = ({data, setData, label, original}) => {
    

@@ -7,7 +7,7 @@ import { Review } from '../../components/Review';
 import { useNavigate } from 'react-router-dom';
 import localidade from '../../assets/images/house.jpg';
 import { Botao } from "../../components/Botao";
-import { deleteLocalidade, postNotas, showLocalidade } from "../../utils/api";
+import { deleteLocalidade, postNotas, showLocalidade } from "../../service/api";
 import { ModalC } from "../../components/Modal";
 import Loader from "react-loader-spinner";
 import { ThemeContext } from "styled-components";

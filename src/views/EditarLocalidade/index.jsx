@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { NavBar } from "../../components/NavBar";
-import { baseURL, getCidades, getCategorias, showLocalidade, updateLocalidade } from "../../utils/api";
+import { baseURL, getCidades, getCategorias, showLocalidade, updateLocalidade } from "../../service/api";
 import axios from "axios";
 import { Localidade } from "../../components/Localidade";
 import { Botao } from "../../components/Botao";

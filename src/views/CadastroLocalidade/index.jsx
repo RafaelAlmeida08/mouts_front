@@ -4,7 +4,7 @@ import { Input } from "../../components/Input";
 import { NavBar } from "../../components/NavBar";
 import { Select } from "../../components/Select";
 import { AlertArea, Container, Content, FormArea, InputGroup, Title } from "./styles";
-import { getCidades, getCategorias, postLocalidades } from "../../utils/api";
+import { getCidades, getCategorias, postLocalidades } from "../../service/api";
 import { Botao } from "../../components/Botao";
 import Loader from "react-loader-spinner";
 import { ThemeContext } from "styled-components";

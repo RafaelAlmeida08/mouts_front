@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Localidade } from "../../components/Localidade";
 import { SubMenu } from "../../components/SubMenu";
 import { useContext, useEffect, useState } from "react";
-import { getLocalidades } from "../../utils/api";
+import { getLocalidades } from "../../service/api";
 import Loader from "react-loader-spinner";
 import { ThemeContext } from "styled-components";
 import Alert from '@mui/material/Alert';

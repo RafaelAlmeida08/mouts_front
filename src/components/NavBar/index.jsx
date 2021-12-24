@@ -8,7 +8,6 @@ export const NavBar = () => {
     const navigation = [
         { name: 'Localidades', href: '/localidades'},
         { name: 'Cidades', href: '/cidades'},
-        { name: 'Contribua', href: '/editar/localidades'}   
     ];
 
     const [ isOpen, setIsOpen] = useState(false);
