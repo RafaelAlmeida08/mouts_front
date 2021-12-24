@@ -9,7 +9,7 @@ Acessando o link a seguir você terá acesso a versão live deste repositório.
 http://www2.amaerj.org.br/processo1/#/
 
 
-## Back end: 
+## Backend: 
 
 https://github.com/RafaelAlmeida08/mouts_back
 
