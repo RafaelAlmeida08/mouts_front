@@ -80,25 +80,25 @@ export const ButtonArea = styled.div`
         opacity: 0.9
     }
     span{
-      background: linear-gradient(to bottom, #70ae6e 61%, #beee62 72%, #beee62 100%);
-      overflow: clip;
-      -webkit-text-fill-color: transparent;
-      -webkit-background-clip: text ;
-      font-weight: 600;
-      line-height: normal ;
-      max-height: 120px ;
-      text-overflow: ellipsis ;
-      display: flex ;
-      justify-content: center;
-      align-items: center;
-      -webkit-line-clamp: 6 ;
-      -webkit-box-orient: vertical ;
-      font-size: 25px;
-      font-stretch: normal;
-      font-style: normal;
-      letter-spacing: normal;
-      width: 222px;
-      height: 48px;
-      margin-top: 5px;
+        background: linear-gradient(to bottom, #70ae6e 61%, #beee62 72%, #beee62 100%);
+        overflow: clip;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text ;
+        font-weight: 600;
+        line-height: normal ;
+        max-height: 120px ;
+        text-overflow: ellipsis ;
+        display: flex ;
+        justify-content: center;
+        align-items: center;
+        -webkit-line-clamp: 6 ;
+        -webkit-box-orient: vertical ;
+        font-size: 25px;
+        font-stretch: normal;
+        font-style: normal;
+        letter-spacing: normal;
+        width: 185px;
+        height: 45px;
+        margin-top: 5px;
     }
 `;
