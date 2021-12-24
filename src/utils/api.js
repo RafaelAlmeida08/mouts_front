@@ -53,4 +53,17 @@ export async function deleteLocalidade(id) {
     }) 
     .then(response => response.data);     
 }
+
+export async function postNotas(data) {
+    return  await axios({
+        method: 'POST',
+        url: `${baseURL}/notas`,
+        data: {
+            descricao: data.descricao,
+            localidade: data.id
+        }
+    })
+    .then(response => response.data);     
+}
+ 
  

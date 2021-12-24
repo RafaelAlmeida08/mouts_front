@@ -1,7 +1,7 @@
 import { Container, Data, ImageArea, LeftArea, Name, RightArea, Text, Top } from "./styles";
 import Avatar from '@mui/material/Avatar';
 
-export const Review = () => {
+export const Review = ({nome, data, review}) => {
     return(
         <Container>
             <Top>
@@ -12,15 +12,15 @@ export const Review = () => {
                 </LeftArea>
                 <RightArea>
                     <Name>
-                        <span>joão da silva</span>
+                        <span>{nome}</span>
                     </Name>
                     <Data>
-                        <span>23/02/2020</span>
+                        <span>{data}</span>
                     </Data>
                 </RightArea>
             </Top>
             <Text>
-                <span>ótimi lugar asdasasd</span>
+                <span>{review}</span>
             </Text>
         </Container>
     );

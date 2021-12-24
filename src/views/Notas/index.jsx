@@ -8,11 +8,12 @@ import { useNavigate } from 'react-router-dom';
 import localidade from '../../assets/images/house.jpg';
 import { Botao } from "../../components/Botao";
 import axios from "axios";
-import { baseURL, deleteLocalidade, showLocalidade } from "../../utils/api";
+import { baseURL, deleteLocalidade, postNotas, showLocalidade } from "../../utils/api";
 import { ModalC } from "../../components/Modal";
 import Loader from "react-loader-spinner";
 import { ThemeContext } from "styled-components";
 import Alert from '@mui/material/Alert';
+import utcToLocal from "../../utils/utcToLocal";
 
 export const Notas = () => {
     const { id } = useParams(); 
@@ -20,11 +21,17 @@ export const Notas = () => {
     const [ loading, setLoading ] = useState(false);
     const [ modalOpen, setModalOpen ] = useState(false);
     const [ registered, setRegistered ] = useState(false);
-    const [ review, setReview ] = useState('');
-    const [ reviews, setReviews ] = useState([]);
     const [ done, setDone ] = useState(false);
     const { colors } = useContext(ThemeContext);
     const redirect = useNavigate();
+
+    const [ error, setError ] = useState(false);
+    const [ errorMessage, setErrorMessage ] = useState('')
+
+    const [ descricao, setDescricao ] = useState('');
+    const [ reviews, setReviews ] = useState([]);
+    const [ notas, setNotas ] = useState([])
+   
 
     const apagarLocalidade = async () => {
         setLoading(true)
@@ -38,40 +45,41 @@ export const Notas = () => {
     }
 
     useEffect(() => {
+        setLoading(true)
+        showLocalidade(id)
+        .then(response => setNotas(response.notas))
+        .catch(error => {})
+        .finally(() => setLoading(false))
     }, [])
 
     useEffect( async () => {
-        if(done) {
-            if(review === ''){
-                alert('Favor preencher o campo de avaliação')
-                setDone(false)
-            }else{                
+        if(done) {                 
                 setModalOpen(false)
                 setLoading(true)
-                await axios({
-                    method: 'POST',
-                    url: `${baseURL}/notas`,
-                    data: {
-                        descricao: review,
-                        localidade: id
-                    }
-                })
+                postNotas({descricao, id})
                 .then( response => setRegistered(true) )
-                .catch(error => console.log(error))
+                .catch(error => {
+                    setErrorMessage(error.response.data.message)
+                    setError(true)
+                })
                 .finally(() => {
                     setLoading(false)
                     setDone(false)
-                    setReview('');
+                    setDescricao('');
                 })
             }
-        }
+        
     }, [done])
 
     useEffect(() => {
         registered && setTimeout( () => { 
-            setRegistered(false)
-        }, 3000)
-    }, [registered])
+            setRegistered(false);
+            window.location.reload()    
+        }, 2000)
+        error && setTimeout( () => { 
+            setError(false)           
+        }, 2000)
+    }, [registered, error])
     
     return(
         <Container>
@@ -82,14 +90,19 @@ export const Notas = () => {
                         Avaliação registrada com sucesso!
                     </Alert>
                 }
+                 {error && 
+                    <Alert variant="filled" severity="error">
+                        {errorMessage}
+                    </Alert>
+                }
             </AlertArea>        
             { !loading ?                
                     modalOpen ?  
                         <ModalC
                             modal={modalOpen}
                             setModal={setModalOpen}
-                            value={review}
-                            setValue={setReview}
+                            value={descricao}
+                            setValue={setDescricao}
                             done={done}
                             setDone={setDone}
                         />
@@ -114,9 +127,17 @@ export const Notas = () => {
                                 <h1>Avaliações</h1>
                             </CardArea>                
                             <Reviews>
-                                <Review/>
-                                <Review/>
-                                <Review/>
+                                {
+                                    !loading && notas.length > 0 &&
+                                    notas.map( (nota) => (
+                                        <Review
+                                            key={nota.id}
+                                            nome="João Gonçalves"
+                                            data={utcToLocal(nota.created_at)}
+                                            review={nota.descricao}
+                                        />
+                                    ))
+                                }
                             </Reviews>
                         </Content> 
                     :
