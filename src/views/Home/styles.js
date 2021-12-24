@@ -38,6 +38,7 @@ export const TextArea = styled.div`
     flex-direction: column;
     justify-content: center;
     text-align: center;    
+    padding: 5px;
     h1{       
         div {
             display: flex;
@@ -80,25 +81,15 @@ export const ButtonArea = styled.div`
         opacity: 0.9
     }
     span{
-        background: linear-gradient(to bottom, #70ae6e 61%, #beee62 72%, #beee62 100%);
-        overflow: clip;
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text ;
-        font-weight: 600;
-        line-height: normal ;
-        max-height: 120px ;
-        text-overflow: ellipsis ;
-        display: flex ;
-        justify-content: center;
-        align-items: center;
-        -webkit-line-clamp: 6 ;
-        -webkit-box-orient: vertical ;
-        font-size: 25px;
-        font-stretch: normal;
-        font-style: normal;
+        color: rgb(112, 174, 110);
+        font-weight: 600;           
+        font-size: 25px;      
         letter-spacing: normal;
         width: 185px;
         height: 45px;
         margin-top: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 `;
