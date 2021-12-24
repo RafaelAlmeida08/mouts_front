@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext, useEffect, useState } from "react";
 import { Input } from "../../components/Input";
 import { NavBar } from "../../components/NavBar";
@@ -10,7 +11,7 @@ import { ThemeContext } from "styled-components";
 import Alert from '@mui/material/Alert';
 
 export const CadastroLocalidade = () => {
-    const [ loading, setLoading ] = useState(false);
+    const [ loading, setLoading ] = useState(true);
     const { colors } = useContext(ThemeContext);
     const [ registered, setRegistered ] = useState(false); 
     const [ error, setError ] = useState(false);
@@ -18,7 +19,7 @@ export const CadastroLocalidade = () => {
 
     const [ cidades, setCidades ] = useState([]);
     const [ categorias, setCategorias ] = useState([]);
-    const [ liberado, setLiberado ] = useState(false);
+    const [ liberado, setLiberado ] = useState(true);
 
     const [ nome, setNome ] = useState('');   
     const [ endereco, setEndereco ] = useState('');    
@@ -26,8 +27,6 @@ export const CadastroLocalidade = () => {
     const [ cidade, setCidade ] = useState();  
 
     useEffect(() => {
-        setLoading(true);
-
         getCidades()
         .then( response => {            
             response.length !== 0 && setLiberado(true);

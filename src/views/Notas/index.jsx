@@ -7,8 +7,7 @@ import { Review } from '../../components/Review';
 import { useNavigate } from 'react-router-dom';
 import localidade from '../../assets/images/house.jpg';
 import { Botao } from "../../components/Botao";
-import axios from "axios";
-import { baseURL, deleteLocalidade, postNotas, showLocalidade } from "../../utils/api";
+import { deleteLocalidade, postNotas, showLocalidade } from "../../utils/api";
 import { ModalC } from "../../components/Modal";
 import Loader from "react-loader-spinner";
 import { ThemeContext } from "styled-components";
@@ -16,9 +15,10 @@ import Alert from '@mui/material/Alert';
 import utcToLocal from "../../utils/utcToLocal";
 
 export const Notas = () => {
+    
     const { id } = useParams(); 
 
-    const [ loading, setLoading ] = useState(false);
+    const [ loading, setLoading ] = useState(true);
     const [ modalOpen, setModalOpen ] = useState(false);
     const [ registered, setRegistered ] = useState(false);
     const [ done, setDone ] = useState(false);
@@ -45,7 +45,6 @@ export const Notas = () => {
     }
 
     useEffect(() => {
-        setLoading(true)
         showLocalidade(id)
         .then(response => setNotas(response.notas))
         .catch(error => {})

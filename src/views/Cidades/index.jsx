@@ -1,8 +1,7 @@
 import { NavBar } from "../../components/NavBar";
 import { Cidade, CidadeDados, CidadeDescricao, CidadeNome, CidadesArea, Container, Content } from "./styles";
 import { Card } from "../../components/Card";
-import axios from "axios";
-import { baseURL, getCidades } from "../../utils/api";
+import { getCidades } from "../../utils/api";
 import cidade1 from "../../assets/images/city1.jpg";
 import Loader from "react-loader-spinner";
 import { useContext, useEffect, useState } from "react";
@@ -12,7 +11,7 @@ import { SubMenu } from "../../components/SubMenu";
 export const Cidades = () => {
 
     const [ cidades, setCidades ] = useState([]);
-    const [ loading, setLoading ] = useState(false);
+    const [ loading, setLoading ] = useState(true);
     const { colors } = useContext(ThemeContext);
 
     const itemsSubMenu = [
@@ -22,7 +21,6 @@ export const Cidades = () => {
     ]
 
     useEffect( async () => {
-        setLoading(true)
         getCidades()
         .then( response => {
             setCidades(response)

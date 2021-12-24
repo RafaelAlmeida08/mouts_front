@@ -65,5 +65,13 @@ export async function postNotas(data) {
     })
     .then(response => response.data);     
 }
+
+export async function getLocalidades() {
+    return   await axios({
+        method: 'GET',
+        url: `${baseURL}/localidades`
+    })
+    .then(response => response.data);     
+}
  
  

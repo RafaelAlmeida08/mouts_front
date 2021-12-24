@@ -1,9 +1,7 @@
-import { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { NavBar } from "../../components/NavBar";
 import { ButtonArea, Center, Container, TextArea } from "./styles";
-
-import getCidades from "../../utils/api";
 
 export const Home = () => {
     return(

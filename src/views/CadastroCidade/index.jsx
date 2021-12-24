@@ -1,3 +1,4 @@
+import React from "react";
 import { AlertArea, Container, Content, FormArea, InputGroup, Title } from "./styles";
 import { NavBar } from '../../components/NavBar';
 import { Input } from "../../components/Input";
@@ -5,27 +6,29 @@ import { useContext, useEffect, useState } from "react";
 import { Select } from "../../components/Select";
 import { estados } from "../../utils/estados";
 import { Botao } from "../../components/Botao";
-import axios from "axios";
-import { baseURL, postCidades } from "../../utils/api";
 import Loader from "react-loader-spinner";
 import { ThemeContext } from "styled-components";
 import Alert from '@mui/material/Alert';
+import { postCidades } from "../../utils/api";
 
 export const CadastroCidade = () => {
        
-    const [ nome, Setnome ] = useState('');
+    const [ nome, setNome ] = useState('');
     const [ pais, setPais ] = useState('');
     const [ estado, setEstado ] = useState(estados[0]);
     const [ error, setError ] = useState(false);
     const [ errorMessage, setErrorMessage ] = useState('')
-    const [ loading, setLoading ] = useState(false);
+    const [ loading, setLoading ] = useState(true);
     const [ registered, setRegistered ] = useState(false);
     const { colors } = useContext(ThemeContext)   
 
     const registrar = async () => {        
-        setLoading(true)
         postCidades({nome, estado, pais})
-        .then( response => setRegistered(true) )
+        .then( response => {
+            setRegistered(true);
+            setNome('');
+            setPais('');
+        })
         .catch(error => {
             setErrorMessage(error.response.data.message)
             setError(true)
@@ -60,8 +63,7 @@ export const CadastroCidade = () => {
                         </Alert>
                     }
                 </AlertArea>                         
-            {
-                !loading ?
+                {!loading ?
                     <FormArea>
                         <Title>
                             <h1>Nova Cidade</h1>
@@ -69,7 +71,7 @@ export const CadastroCidade = () => {
                         <InputGroup>
                             <Input
                                 value={nome}
-                                setValue={Setnome}
+                                setValue={setNome}
                                 placeholder="Nome da Cidade"
                             />
                             <Select
@@ -96,7 +98,7 @@ export const CadastroCidade = () => {
                         width={100}
                         timeout={0} 
                     />           
-            }
+                 }
             </Content>
         </Container>
     );

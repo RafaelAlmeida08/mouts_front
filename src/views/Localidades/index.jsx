@@ -1,18 +1,18 @@
+import React from "react";
 import { AlertArea, CardArea,  Container, LocalArea } from "./styles";
 import { NavBar } from "../../components/NavBar";
 import { Link } from "react-router-dom";
 import { Localidade } from "../../components/Localidade";
 import { SubMenu } from "../../components/SubMenu";
 import { useContext, useEffect, useState } from "react";
-import { baseURL } from "../../utils/api";
-import axios from "axios";
+import { baseURL, getLocalidades } from "../../utils/api";
 import Loader from "react-loader-spinner";
 import { ThemeContext } from "styled-components";
 import Alert from '@mui/material/Alert';
 
 export const Localidades = () => {
 
-    const [ loading, setLoading ] = useState(false);
+    const [ loading, setLoading ] = useState(true);
     const [ localidades, setLocalidades ] = useState([]);
     const { colors } = useContext(ThemeContext);
 
@@ -25,13 +25,9 @@ export const Localidades = () => {
     ];
 
     useEffect( async () => {
-        setLoading(true)
-        await axios({
-            method: 'GET',
-            url: `${baseURL}/localidades`
-        })
+       getLocalidades()
         .then( response => {
-            setLocalidades(response.data)
+            setLocalidades(response)
         })
         .catch( error => console.log(error)) 
         .finally(() => setLoading(false))
