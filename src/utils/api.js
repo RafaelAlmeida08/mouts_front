@@ -41,7 +41,7 @@ export async function updateLocalidade(data, id) {
 export async function showLocalidade(id) {
     return await axios({
         method: 'GET',
-        url: `${baseURL}/localidades/show/${id}`
+        url: `${baseURL}/localidades/${id}`
     })
     .then(response => response.data);     
 }

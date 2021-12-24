@@ -16,30 +16,33 @@ export const CadastroCidade = () => {
     const [ nome, Setnome ] = useState('');
     const [ pais, setPais ] = useState('');
     const [ estado, setEstado ] = useState(estados[0]);
+    const [ error, setError ] = useState(false);
+    const [ errorMessage, setErrorMessage ] = useState('')
     const [ loading, setLoading ] = useState(false);
     const [ registered, setRegistered ] = useState(false);
     const { colors } = useContext(ThemeContext)   
 
-    const registrar = async () => {
-        if(nome === '' || pais === '') {
-            alert('Favor preencher todos os campos');
-            return false;
-        }else {
-            setLoading(true)
-            postCidades({nome, estado, pais})
-            .then( response => setRegistered(true) )
-            .catch(error => console.log(error))
-            .finally(() => {
-                setLoading(false)
-            })
-        }               
+    const registrar = async () => {        
+        setLoading(true)
+        postCidades({nome, estado, pais})
+        .then( response => setRegistered(true) )
+        .catch(error => {
+            setErrorMessage(error.response.data.message)
+            setError(true)
+        })
+        .finally(() => {
+            setLoading(false)
+        })                    
     };
 
     useEffect(() => {
         registered && setTimeout( () => { 
-            setRegistered(false)
+            setError(false)           
         }, 2000)
-    }, [registered])
+        error && setTimeout( () => { 
+            setError(false)           
+        }, 2000)
+    }, [registered, error])
 
     return(
         <Container>
@@ -51,7 +54,12 @@ export const CadastroCidade = () => {
                             Cidade registrada com sucesso!
                         </Alert>
                     }
-                </AlertArea>            
+                     {error && 
+                        <Alert variant="filled" severity="error">
+                            {errorMessage}
+                        </Alert>
+                    }
+                </AlertArea>                         
             {
                 !loading ?
                     <FormArea>
