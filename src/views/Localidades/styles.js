@@ -5,7 +5,7 @@ const breakPoints = {
         value: 780
     },
     sm: {
-        value: 520
+        value: 620
     }
 }
 

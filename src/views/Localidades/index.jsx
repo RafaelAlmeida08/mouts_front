@@ -11,6 +11,7 @@ import { ThemeContext } from "styled-components";
 import Alert from '@mui/material/Alert';
 import { Filter } from "../../components/Filter";
 import { Pipeline } from "../../components/Pipeline";
+import { FilterSelect } from "../../components/FilterSelect";
 
 export const Localidades = () => {
 
@@ -18,6 +19,7 @@ export const Localidades = () => {
     const [ localidades, setLocalidades ] = useState([]);
     const { colors } = useContext(ThemeContext);
     const [ up, setUp ] = useState(false);
+    const [ original, setOriginal ] = useState([]);
 
     const itemsSubMenu = [
         { name: 'Nova Localidade', href: '/cadastro/localidades'}        
@@ -27,11 +29,12 @@ export const Localidades = () => {
        getLocalidades()
         .then( response => {
             setLocalidades(response)
+            setOriginal(response)
         })
         .catch( error => console.log(error)) 
         .finally(() => setLoading(false))
     },[])
-    
+
     return(
         <Container> 
             <NavBar />
@@ -42,10 +45,15 @@ export const Localidades = () => {
                     <Filter                                        
                         label="Nome"  
                         data={localidades}
-                        setData={setLocalidades}
-                        orderBy="nome"
+                        setData={setLocalidades}      
                         up={up}
                         setUp={setUp}                     
+                    />    
+                    <FilterSelect        
+                        data={localidades}   
+                        label="Cidades"
+                        setData={setLocalidades}   
+                        original={original}
                     />              
                 </Bar>     
                 }       
