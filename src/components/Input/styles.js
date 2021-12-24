@@ -6,7 +6,7 @@ export const Container = styled.div`
     align-items: center;
     text-transform: uppercase;
     input{
-        border: none;
+        border: 1px solid ${props => props.theme.colors.title};
         margin-bottom: 20px;
         background: ${props => props.theme.colors.background};       
         height: 50px;
