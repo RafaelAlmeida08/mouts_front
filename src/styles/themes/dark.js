@@ -15,6 +15,7 @@ export default {
         filterBackground : '#212529',
         filterTextColor : 'white',
         filterBorder : 'white',
-        filterborderHover : '0.5'       
+        filterborderHover : '0.5',
+        pipe: 'white'
     }
 }

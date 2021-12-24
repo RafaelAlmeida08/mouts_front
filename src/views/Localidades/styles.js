@@ -69,7 +69,7 @@ export const AlertArea = styled.div`
 export const Bar = styled.div`
 
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     @media(max-width: ${breakPoints.sm.value}px) {
         flex-direction: column;
@@ -80,3 +80,16 @@ export const Bar = styled.div`
 export const SubMenuArea = styled.div``;
 
 export const Filters = styled.div``;
+
+export const Pipe = styled.div`
+    display: inline ;
+    height: 20px ;
+    width: 0px ;
+    margin-right: 16px ;
+    margin-left: 8px ;
+    border-left: 1px solid ${(props) => props.theme.colors.pipe};
+    transition: all 0.3s ease-in;  
+    @media(max-width: ${breakPoints.sm.value}px) {
+        display: none;
+    }  
+`;

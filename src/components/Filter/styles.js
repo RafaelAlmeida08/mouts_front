@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+    padding-left: 20px;
+`;
 
 export const ButtonArea = styled.div`
     border: 1px solid ${props => props.theme.colors.filterBorder};
@@ -12,7 +14,7 @@ export const ButtonArea = styled.div`
     height: 50px;
     border-radius: 30px ;
     background-color: ${props => props.theme.colors.filterBackground};  
-
+   
     &:hover{
         opacity: ${props => props.theme.colors.filterborderHover};  
     }

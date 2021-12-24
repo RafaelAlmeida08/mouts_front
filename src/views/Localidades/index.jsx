@@ -1,5 +1,5 @@
 import React from "react";
-import { AlertArea, Bar, CardArea,  Container, LocalArea } from "./styles";
+import { AlertArea, Bar, CardArea,  Container, LocalArea, Pipe } from "./styles";
 import { NavBar } from "../../components/NavBar";
 import { Link } from "react-router-dom";
 import { Localidade } from "../../components/Localidade";
@@ -19,8 +19,7 @@ export const Localidades = () => {
     const [ up, setUp ] = useState(false);
 
     const itemsSubMenu = [
-        { name: 'Nova Localidade', href: '/cadastro/localidades'},
-        { name: 'Todas', href: '#'}
+        { name: 'Nova Localidade', href: '/cadastro/localidades'}        
     ];
 
     useEffect( async () => {
@@ -52,7 +51,8 @@ export const Localidades = () => {
             <NavBar />
             {!loading &&
                 <Bar>
-                    <SubMenu items={itemsSubMenu} />        
+                    <SubMenu items={itemsSubMenu} />   
+                    <Pipe/>     
                     <div onClick={() => ordenaPorTipo()} >
                         <Filter                                        
                             label="Nome"                       

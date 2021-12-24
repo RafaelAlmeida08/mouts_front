@@ -14,10 +14,8 @@ export const Cidades = () => {
     const [ loading, setLoading ] = useState(true);
     const { colors } = useContext(ThemeContext);
 
-    const itemsSubMenu = [
-        { name: 'Todas', href: '#'},
-        { name: 'Nova', href: '/cadastro/cidades'},
-        { name: 'Filtro por Estado', href: '#'}   
+    const itemsSubMenu = [        
+        { name: 'Nova', href: '/cadastro/cidades'},          
     ]
 
     useEffect( async () => {
