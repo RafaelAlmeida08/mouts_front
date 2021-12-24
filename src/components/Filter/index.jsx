@@ -5,7 +5,7 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import { useEffect, useState } from "react";
 import { ButtonArea } from "./styles";
 
-export const Filter = ({data, setData, filter, label}) => {
+export const Filter = ({data, setData, orderBy, label, up, setUp}) => {
 
     const [ direction, setDirection ] = useState('down');
 
@@ -13,6 +13,22 @@ export const Filter = ({data, setData, filter, label}) => {
         direction === 'up' 
         ? setDirection('down')
         : setDirection('up')
+
+        if( orderBy === 'nome' ) {
+
+        const list = [...data];
+
+            if(up){
+                list.sort((a,b) => (a.nome < b.nome) ? 1 : -1);
+            }else{
+                list.sort((a,b) => (a.nome > b.nome) ? 1 : -1);
+            }
+
+        setData(list);
+        setUp(!up);
+
+        }
+
     }
     return(
         <Container>

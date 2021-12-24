@@ -1,5 +1,5 @@
 import React from "react";
-import { AlertArea, Bar, CardArea,  Container, LocalArea, Pipe } from "./styles";
+import { AlertArea, Bar, CardArea,  Container, LocalArea} from "./styles";
 import { NavBar } from "../../components/NavBar";
 import { Link } from "react-router-dom";
 import { Localidade } from "../../components/Localidade";
@@ -10,6 +10,7 @@ import Loader from "react-loader-spinner";
 import { ThemeContext } from "styled-components";
 import Alert from '@mui/material/Alert';
 import { Filter } from "../../components/Filter";
+import { Pipeline } from "../../components/Pipeline";
 
 export const Localidades = () => {
 
@@ -30,34 +31,22 @@ export const Localidades = () => {
         .catch( error => console.log(error)) 
         .finally(() => setLoading(false))
     },[])
-
-    const ordenaPorTipo = () => {
-        
-        const list = [...localidades];
-
-        if(up){
-            list.sort((a,b) => (a.nome < b.nome) ? 1 : -1);
-        }else{
-            list.sort((a,b) => (a.nome > b.nome) ? 1 : -1);
-        }
-
-        setLocalidades(list);
-        setUp(!up);
-        
-    }
-
+    
     return(
         <Container> 
             <NavBar />
             {!loading &&
                 <Bar>
                     <SubMenu items={itemsSubMenu} />   
-                    <Pipe/>     
-                    <div onClick={() => ordenaPorTipo()} >
-                        <Filter                                        
-                            label="Nome"                       
-                        />      
-                    </div>                    
+                    <Pipeline/>                         
+                    <Filter                                        
+                        label="Nome"  
+                        data={localidades}
+                        setData={setLocalidades}
+                        orderBy="nome"
+                        up={up}
+                        setUp={setUp}                     
+                    />              
                 </Bar>     
                 }       
                 {!loading && localidades.length < 1 && 

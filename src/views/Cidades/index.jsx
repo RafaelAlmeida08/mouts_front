@@ -1,5 +1,5 @@
 import { NavBar } from "../../components/NavBar";
-import { Cidade, CidadeDados, CidadeDescricao, CidadeNome, CidadesArea, Container, Content } from "./styles";
+import { Cidade, CidadeDados, CidadeDescricao, CidadeNome, CidadesArea, Container, Content, Bar } from "./styles";
 import { Card } from "../../components/Card";
 import { getCidades } from "../../utils/api";
 import cidade1 from "../../assets/images/city1.jpg";
@@ -7,12 +7,15 @@ import Loader from "react-loader-spinner";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "styled-components";
 import { SubMenu } from "../../components/SubMenu";
+import { Pipeline } from "../../components/Pipeline";
+import { Filter } from "../../components/Filter";
 
 export const Cidades = () => {
 
     const [ cidades, setCidades ] = useState([]);
     const [ loading, setLoading ] = useState(true);
     const { colors } = useContext(ThemeContext);
+    const [ up, setUp ] = useState(false);
 
     const itemsSubMenu = [        
         { name: 'Nova', href: '/cadastro/cidades'},          
@@ -30,7 +33,19 @@ export const Cidades = () => {
     return(
         <Container>
             <NavBar/>
-            <SubMenu items={itemsSubMenu} />
+            <Bar>
+                <SubMenu items={itemsSubMenu} />
+                <Pipeline/>                
+                <Filter                                        
+                    label="Nome"
+                    data={cidades}
+                    setData={setCidades}
+                    orderBy="nome"
+                    up={up}
+                    setUp={setUp}
+                />  
+            </Bar>
+            
             <Content>
             {
                 !loading ?

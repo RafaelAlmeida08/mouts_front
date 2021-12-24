@@ -67,14 +67,12 @@ export const AlertArea = styled.div`
 `;
 
 export const Bar = styled.div`
-
     display: flex;
     justify-content: center;
     align-items: center;
     @media(max-width: ${breakPoints.sm.value}px) {
         flex-direction: column;
     }    
-
 `;
 
 export const SubMenuArea = styled.div``;
