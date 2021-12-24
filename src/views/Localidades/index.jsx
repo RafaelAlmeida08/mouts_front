@@ -1,27 +1,26 @@
 import React from "react";
-import { AlertArea, CardArea,  Container, LocalArea } from "./styles";
+import { AlertArea, Bar, CardArea,  Container, LocalArea } from "./styles";
 import { NavBar } from "../../components/NavBar";
 import { Link } from "react-router-dom";
 import { Localidade } from "../../components/Localidade";
 import { SubMenu } from "../../components/SubMenu";
 import { useContext, useEffect, useState } from "react";
-import { baseURL, getLocalidades } from "../../utils/api";
+import { getLocalidades } from "../../utils/api";
 import Loader from "react-loader-spinner";
 import { ThemeContext } from "styled-components";
 import Alert from '@mui/material/Alert';
+import { Filter } from "../../components/Filter";
 
 export const Localidades = () => {
 
     const [ loading, setLoading ] = useState(true);
     const [ localidades, setLocalidades ] = useState([]);
     const { colors } = useContext(ThemeContext);
+    const [ up, setUp ] = useState(false);
 
     const itemsSubMenu = [
         { name: 'Nova Localidade', href: '/cadastro/localidades'},
-        { name: 'Todas', href: '#'},
-        // { name: 'Comercial', href: '#'},   
-        // { name: 'Residencial', href: '#'},  
-        // { name: 'Outros', href: '#'}  
+        { name: 'Todas', href: '#'}
     ];
 
     useEffect( async () => {
@@ -34,14 +33,33 @@ export const Localidades = () => {
     },[])
 
     const ordenaPorTipo = () => {
-        console.log(localidades.filter(e => e.categoria.id === 3))
+        
+        const list = [...localidades];
+
+        if(up){
+            list.sort((a,b) => (a.nome < b.nome) ? 1 : -1);
+        }else{
+            list.sort((a,b) => (a.nome > b.nome) ? 1 : -1);
+        }
+
+        setLocalidades(list);
+        setUp(!up);
+        
     }
 
     return(
         <Container> 
             <NavBar />
-            <button onClick={() => ordenaPorTipo()} >Filtrar</button>
-            <SubMenu items={itemsSubMenu} />                   
+            {!loading &&
+                <Bar>
+                    <SubMenu items={itemsSubMenu} />        
+                    <div onClick={() => ordenaPorTipo()} >
+                        <Filter                                        
+                            label="Nome"                       
+                        />      
+                    </div>                    
+                </Bar>     
+                }       
                 {!loading && localidades.length < 1 && 
                     <AlertArea>
                         <Alert variant="filled" severity="info">

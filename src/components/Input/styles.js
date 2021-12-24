@@ -4,6 +4,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-transform: uppercase;
     input{
         border: none;
         margin-bottom: 20px;
@@ -13,11 +14,16 @@ export const Container = styled.div`
         text-align: center;
         color: ${props => props.theme.colors.inputText};
         transition: .3s width ease-in-out;
+        text-transform: capitalize;
         &:focus{
             outline: none;           
+        }      
+        ::placeholder{
+            text-transform: none;
         }
+        
     }
-
+   
     button {
         font-size: 16px ;
         font-weight: light;

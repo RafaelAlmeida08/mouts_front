@@ -3,6 +3,9 @@ import styled from "styled-components";
 const breakPoints = {
     md: {
         value: 780
+    },
+    sm: {
+        value: 520
     }
 }
 
@@ -62,3 +65,18 @@ export const AlertArea = styled.div`
     margin-top: 100px;
     
 `;
+
+export const Bar = styled.div`
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    @media(max-width: ${breakPoints.sm.value}px) {
+        flex-direction: column;
+    }    
+
+`;
+
+export const SubMenuArea = styled.div``;
+
+export const Filters = styled.div``;

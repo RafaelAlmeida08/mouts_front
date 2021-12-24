@@ -33,7 +33,7 @@ export const CadastroLocalidade = () => {
             response.forEach( (response) => {
                 setCidades(cidades => [...cidades, response])              
             })
-            setCidade(response.id)
+            setCidade(response[0].id)
          })
         .catch(error => console.log(error))
               
