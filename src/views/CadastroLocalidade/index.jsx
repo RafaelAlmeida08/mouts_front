@@ -3,8 +3,7 @@ import { Input } from "../../components/Input";
 import { NavBar } from "../../components/NavBar";
 import { Select } from "../../components/Select";
 import { AlertArea, Container, Content, FormArea, InputGroup, Title } from "./styles";
-import axios from "axios";
-import { baseURL, getCidades, getCategorias, postLocalidades } from "../../utils/api";
+import { getCidades, getCategorias, postLocalidades } from "../../utils/api";
 import { Botao } from "../../components/Botao";
 import Loader from "react-loader-spinner";
 import { ThemeContext } from "styled-components";
@@ -19,6 +18,7 @@ export const CadastroLocalidade = () => {
 
     const [ cidades, setCidades ] = useState([]);
     const [ categorias, setCategorias ] = useState([]);
+    const [ liberado, setLiberado ] = useState(false);
 
     const [ nome, setNome ] = useState('');   
     const [ endereco, setEndereco ] = useState('');    
@@ -29,11 +29,12 @@ export const CadastroLocalidade = () => {
         setLoading(true);
 
         getCidades()
-        .then( response => {
+        .then( response => {            
+            response.length !== 0 && setLiberado(true);
             response.forEach( (response) => {
                 setCidades(cidades => [...cidades, response])              
             })
-            setCidade(response[0].id)
+            setCidade(response.id)
          })
         .catch(error => console.log(error))
               
@@ -82,59 +83,60 @@ export const CadastroLocalidade = () => {
             <Content>
                 <AlertArea>
                     {registered && 
-                        <Alert variant="filled" severity="success">
-                            Localidade registrada com sucesso!
-                        </Alert>
+                        <Alert variant="filled" severity="success">Localidade registrada com sucesso!</Alert>
                     }
                     {error && 
-                        <Alert variant="filled" severity="error">
-                            {errorMessage}
-                        </Alert>
+                        <Alert variant="filled" severity="error"> {errorMessage}</Alert>
+                    }
+                     {!liberado &&
+                        <Alert variant="filled" severity="error">Você precisa ter pelo menos 1 cidade cadastrada</Alert>
                     }
                 </AlertArea>            
-                {
-                    !loading ?               
-                        <FormArea>
-                            <Title>
-                                <h1>Nova Localidade</h1>
-                            </Title>
-                            <InputGroup>
-                                    <Input
-                                        value={nome}
-                                        setValue={setNome}
-                                        placeholder="Nome da localidade"
-                                    />
-                                    <Select
-                                        opt={categorias}
-                                        setValue={setCategoria}
-                                        value={categoria}
-                                        label="Categoria"
-                                    />
-                                    <Input
-                                        value={endereco}
-                                        setValue={setEndereco}
-                                        placeholder="Endereço da localidade"
-                                    />
-                                    <Select
-                                        opt={cidades}
-                                        setValue={setCidade}
-                                        value={cidade}
-                                        label="Cidades"
-                                    />
-                                </InputGroup>
-                                <div onClick={() => registrar()} >
-                                    <Botao text="Registrar" />
-                                </div>
-                        </FormArea>
-                    : 
-                        <Loader
-                            type="Puff"
-                            color={colors.spinner}
-                            height={100}
-                            width={100}
-                            timeout={0} 
-                        />       
-                }
+                        {liberado ?
+                            !loading ?       
+                                <FormArea>
+                                    <Title>
+                                        <h1>Nova Localidade</h1>
+                                    </Title>
+                                    <InputGroup>
+                                            <Input
+                                                value={nome}
+                                                setValue={setNome}
+                                                placeholder="Nome da localidade"
+                                            />
+                                            <Select
+                                                opt={categorias}
+                                                setValue={setCategoria}
+                                                value={categoria}
+                                                label="Categoria"
+                                            />
+                                            <Input
+                                                value={endereco}
+                                                setValue={setEndereco}
+                                                placeholder="Endereço da localidade"
+                                            />
+                                            <Select
+                                                opt={cidades}
+                                                setValue={setCidade}
+                                                value={cidade}
+                                                label="Cidades"
+                                            />
+                                        </InputGroup>
+                                        <div onClick={() => registrar()} >
+                                            <Botao text="Registrar" />
+                                        </div>
+                                </FormArea>
+                            : 
+                                <Loader
+                                    type="Puff"
+                                    color={colors.spinner}
+                                    height={100}
+                                    width={100}
+                                    timeout={0} 
+                                />    
+                        :
+                            false   
+                        }
             </Content>
         </Container>
     );
